@@ -96,7 +96,7 @@ end
 
 function step()
     check()
-    turtle.dig() --digs using item in left hand, NOT digs the left block
+    turtle.dig()
     turtle.forward()
 end
 
@@ -179,6 +179,11 @@ for d = 1, down do
         direction = "left"
     else
         direction = "right"
+    end
+    fuel = turtle.getFuelLevel()
+    if fuel < (depth / 2) then
+        print("Running out of fuel...")
+        returndepth(depth)
     end
 end
 returndepth(depth)
